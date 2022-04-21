@@ -1,22 +1,39 @@
-import React from "react";
-import Jobdata from "./jobdata.json";
+import Header from "./Header";
+import Home from "./Home";
+import Products from "./Products";
+import Mobile from "./Mobile";
+import Consulting from "./Consulting";
+import Development from "./Development";
+import Infrastructure from "./Infrastructure";
+import Learn from "./Learn";
+import Company from "./Company";
+import About from "./About";
+import Contactus from "./Contactus";
+import Footer from "./Footer";
 
-const App = () => {
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+
+function App() {
   return (
-    <>
-      <div className="posts">
-        {Jobdata.map((post) => {
-          return (
-            <div key={post.id} className="post">
-              <h1> Job description</h1>
-              <h4>{post.position}</h4>
-              <p>{post.description}</p>
-            </div>
-          );
-        })}
-      </div>
-    </>
+    <BrowserRouter>
+      <Header />
+
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/mobile" element={<Mobile />} />
+        <Route path="/consulting" element={<Consulting />} />
+        <Route path="/development" element={<Development />} />
+        <Route path="/infra" element={<Infrastructure />} />
+        <Route path="/learn" element={<Learn />} />
+        <Route path="/company" element={<Company />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contactus" element={<Contactus />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
